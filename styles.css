@@ -37,7 +37,9 @@
 }
 
 /* ===== RESET & BASE ===== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -63,8 +65,14 @@ a {
   transition: var(--transition-fast);
 }
 
-ul { list-style: none; }
-img { max-width: 100%; display: block; }
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
 
 /* ===== CONTAINER ===== */
 .container {
@@ -324,8 +332,15 @@ section {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-30px) scale(1.05); }
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-30px) scale(1.05);
+  }
 }
 
 .hero .container {
@@ -364,8 +379,15 @@ section {
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
 }
 
 .hero-title {
@@ -468,46 +490,14 @@ section {
   opacity: 0.3;
 }
 
-.hero-image-wrapper .floating-badge {
-  position: absolute;
-  padding: 12px 20px;
-  border-radius: 16px;
-  background: rgba(15, 11, 26, 0.85);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--border-glass);
-  font-size: 0.85rem;
-  font-weight: 500;
-  z-index: 2;
-  animation: floatBadge 4s ease-in-out infinite;
-  white-space: nowrap;
-}
 
-.floating-badge.badge-1 {
-  top: 10%;
-  right: -40px;
-  animation-delay: 0s;
-}
-
-.floating-badge.badge-2 {
-  bottom: 15%;
-  left: -50px;
-  animation-delay: -2s;
-}
-
-.floating-badge .badge-icon {
-  margin-right: 6px;
-}
-
-@keyframes floatBadge {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -561,7 +551,9 @@ section {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .experience-circle .exp-number {
@@ -1131,9 +1123,11 @@ section {
   .nav-toggle.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
   }
+
   .nav-toggle.active span:nth-child(2) {
     opacity: 0;
   }
+
   .nav-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
   }
