@@ -71,38 +71,45 @@ document.querySelectorAll('.services-grid .reveal, .portfolio-grid .reveal, .tes
   el.style.transitionDelay = `${i * 0.1}s`;
 });
 
-emailjs.init('SUA_PUBLIC_KEY');
-
 const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const btn = contactForm.querySelector('.btn');
   const originalText = btn.innerHTML;
+  const formData = new FormData(contactForm);
 
   // Feedback visual: enviando...
   btn.innerHTML = '⏳ Enviando...';
   btn.disabled = true;
 
-  emailjs.sendForm(
-    'SEU_SERVICE_ID',
-    'SEU_TEMPLATE_ID',
-    contactForm
-  ).then(() => {
-    btn.innerHTML = '✓ Mensagem Enviada!';
-    btn.style.background = 'linear-gradient(135deg, #4ADE80, #22C55E)';
-    btn.style.boxShadow = '0 4px 20px rgba(74, 222, 128, 0.4)';
+  try {
+    const response = await fetch(contactForm.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
 
-    setTimeout(() => {
-      btn.innerHTML = originalText;
-      btn.style.background = '';
-      btn.style.boxShadow = '';
-      btn.disabled = false;
-      contactForm.reset();
-    }, 3000);
-  }).catch((error) => {
-    console.error('EmailJS Error:', error);
+    if (response.ok) {
+      btn.innerHTML = '✓ Mensagem Enviada!';
+      btn.style.background = 'linear-gradient(135deg, #4ADE80, #22C55E)';
+      btn.style.boxShadow = '0 4px 20px rgba(74, 222, 128, 0.4)';
+
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = '';
+        btn.style.boxShadow = '';
+        btn.disabled = false;
+        contactForm.reset();
+      }, 3000);
+    } else {
+      throw new Error('Erro na resposta do servidor');
+    }
+  } catch (error) {
+    console.error('Formspree Error:', error);
     btn.innerHTML = '✗ Erro ao enviar';
     btn.style.background = 'linear-gradient(135deg, #EF4444, #DC2626)';
     btn.style.boxShadow = '0 4px 20px rgba(239, 68, 68, 0.4)';
@@ -113,7 +120,7 @@ contactForm.addEventListener('submit', (e) => {
       btn.style.boxShadow = '';
       btn.disabled = false;
     }, 3000);
-  });
+  }
 });
 
 function animateCounter(element, target) {
