@@ -35,6 +35,7 @@ const assetFiles = [
   'renatogarcia.webp',
   'rivollplay.webp',
   'sessaonerd.webp',
+  'service-icons.svg',
   'sypherpk.webp',
   'tokyo ghoul.webp',
   'viainfinda.webp',

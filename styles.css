@@ -730,12 +730,18 @@ section {
   align-items: center;
   justify-content: center;
   color: var(--accent-light);
-  font-family: var(--font-heading);
-  font-size: 0.92rem;
-  font-weight: 800;
-  letter-spacing: 0.5px;
   margin: 0 auto 24px;
   transition: var(--transition-smooth);
+}
+
+.service-icon svg {
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .service-card:hover .service-icon {
