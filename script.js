@@ -111,14 +111,14 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
     });
   }, {
     threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    rootMargin: '0px 0px 160px 0px'
   });
 
   revealElements.forEach((element) => revealObserver.observe(element));
 
   document.querySelectorAll('.services-grid .reveal, .portfolio-grid .reveal, .creators-grid .reveal')
     .forEach((element, index) => {
-      element.style.transitionDelay = `${Math.min(index, 7) * 0.07}s`;
+      element.style.transitionDelay = `${Math.min(index, 7) * 0.025}s`;
     });
 }
 
