@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Aline Lacerda">
+  <defs>
+    <linearGradient id="brand" x1="10" y1="54" x2="54" y2="10" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7C3AED"/>
+      <stop offset="0.56" stop-color="#DB2777"/>
+      <stop offset="1" stop-color="#D4A843"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="18" y1="45" x2="46" y2="17" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8F5FF"/>
+      <stop offset="1" stop-color="#F0D78C"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="#0F0B1A"/>
+  <rect x="3" y="3" width="58" height="58" rx="15" fill="none" stroke="url(#brand)" stroke-width="2"/>
+
+  <path d="M16 47 29.4 17.5c.9-2 4.3-2 5.2 0L48 47h-8.1l-2.6-6.4H26.7L24.1 47H16Zm13.4-13h5.2L32 27.4 29.4 34Z" fill="url(#shine)"/>
+  <path d="m42.5 14.5 2.1 4.9 4.9 2.1-4.9 2.1-2.1 4.9-2.1-4.9-4.9-2.1 4.9-2.1 2.1-4.9Z" fill="#D4A843"/>
+</svg>
